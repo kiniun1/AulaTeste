@@ -7,7 +7,6 @@ router
 .post("/users", async (req, res) => {
     try {
         console.log('Rota POST users');
-        console.log(req.body);
         await userSave(req.body);
         res.status(200).send('Salvo com sucesso');
     } catch (error) {
@@ -19,8 +18,8 @@ router
 .get("/users", async (req, res) => {
     try {
         console.log('Rota GET users');
-        const resultadoConsulta = await userGet();
-        res.status(200).send(resultadoConsulta);
+        const resultQuery = await userGet();
+        res.status(200).send(resultQuery);
     } catch (error) {
         res.send(error)           
     }  
