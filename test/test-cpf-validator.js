@@ -1,4 +1,3 @@
-const mocha = require('mocha');
 const { assert } = require('chai');
 const CpfValidator = require('../commons/cpf-validator');
 const { MissingParamError, InvalidParamError } = require('../commons/errors');
