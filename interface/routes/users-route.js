@@ -24,7 +24,8 @@ router
         const resultQuery = await userGetPostgres();
         res.status(200).send(resultQuery);
     } catch (error) {
-        res.send(error)           
+        const finalError = await httpStatusResponse(500, (error.message), 'usersRoute');
+        res.status(finalError.statusCode).send(finalError.body);         
     }  
 });
 
