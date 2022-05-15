@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../../configuration/connect-database');
-const USER_REGISTRATION_MODEL = sequelize.define('USER_REGISTRATION_MODEL', {
+const USER_REGISTRATION_MODEL = sequelize.define('Pessoa', {
     id: {
     type: DataTypes.BIGINT,
     allowNull: false,
@@ -8,11 +8,17 @@ const USER_REGISTRATION_MODEL = sequelize.define('USER_REGISTRATION_MODEL', {
     primaryKey: true,
     autoIncrement: true,
     },
-    nome_usuario: {
+    userName: {
     type: DataTypes.STRING(165),
     unique: false,
     allowNull: false,
     comment: "Coluna destinado a registrar o nome do usuário."
+    },
+    birthDay: {
+    type: DataTypes.DATEONLY,
+    unique: false,
+    allowNull: false,
+    comment: "Coluna destinado a registrar a data de nascimento do usuário."
     },
 });
 
