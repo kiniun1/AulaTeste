@@ -29,7 +29,7 @@ const userUpdateController = async(data, variableWithPropertyError)=>{
 
 
 describe('Testing update controller', ()=>{
-    it('should return an error because of missing parameter', async()=>{
+    it('1°: should return an error because of missing parameter', async()=>{
         const req = {
             body: {
 
@@ -39,12 +39,12 @@ describe('Testing update controller', ()=>{
         expect(resultController.statusCode).to.equal(400);
         expect(resultController.body).to.equal('Missing parameter');
     })
-    it("should return an error of can't read properties of undefined property, because no object was passed to function", async()=>{
+    it("2°: should return an error of can't read properties of undefined property, because no object was passed to function", async()=>{
         const resultController = await userUpdateController();
         expect(resultController.statusCode).to.equal(500);
         expect(resultController.body).to.equal("Cannot read properties of undefined (reading 'userName')");
     })
-    it('should return an succesfully saved response given correct parameters', async()=>{
+    it('3°: should return an succesfully saved response given correct parameters', async()=>{
         const req = {
             body: {
                 id: 1,
@@ -59,7 +59,7 @@ describe('Testing update controller', ()=>{
         expect(resultController.statusCode).to.equal(200);
         expect(resultController.body).to.equal("Successfully updated");
     })
-    it('should return an internal error due to not saving data in the DB successfully', async()=>{
+    it('4°: should return an internal error due to not saving data in the DB successfully', async()=>{
         const req = {
             body: {
                 id: 1,
